@@ -1,0 +1,38 @@
+{
+  "name": "@v-md/shared",
+  "type": "module",
+  "version": "0.0.3",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./browser": {
+      "types": "./dist/src/browser/index.d.ts",
+      "import": "./dist/browser.js"
+    }
+  },
+  "module": "dist/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "CHANGELOG.md",
+    "dist"
+  ],
+  "scripts": {
+    "tsc": "vue-tsc --noEmit --skipLibCheck -p tsconfig.json",
+    "build-check": "cross-env BUILD_CHECK=true vite build",
+    "build": "vite build"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "dependencies": {
+    "@types/lodash-es": "catalog:",
+    "fflate": "^0.8.2",
+    "jsonc-parser": "^3.3.1",
+    "lodash-es": "catalog:",
+    "nanoid": "^5.0.9",
+    "type-fest": "catalog:"
+  }
+}

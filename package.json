@@ -1,0 +1,31 @@
+{
+  "name": "v-md",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint:script": "eslint . --fix",
+    "lint:style": "stylelint --fix ./**/*.{css,scss,vue}",
+    "tsc:libs": "pnpm -F @v-md/app -F @v-md/plugin-editor-volar -F @v-md/plugin-lang-sass tsc",
+    "dev:play": "pnpm -F @v-md/playground run dev",
+    "dev:doc": "pnpm -F @v-md/doc run dev",
+    "build-check:libs": "pnpm -F \"./libs/**\" -F \"./plugins/**\" build-check",
+    "build:play": "pnpm -F @v-md/playground build",
+    "build:doc": "pnpm -F @v-md/doc build",
+    "build:libs": "pnpm -F \"./libs/**\" -F \"./plugins/**\" build",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage.enabled",
+    "test:preview": "vite preview --outDir vitest-output/html",
+    "release": "pnpm build:libs && changeset publish"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.4.1",
+    "@types/node": "^24.7.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "@vitest/ui": "^3.2.4",
+    "cross-env": "^10.1.0",
+    "eslint": "^9.37.0",
+    "tsx": "^4.20.6",
+    "vite": "^7.1.9",
+    "vitest": "^3.2.4"
+  }
+}

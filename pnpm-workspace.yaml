@@ -1,0 +1,9 @@
+packages:
+  - libs/*
+  - plugins/*
+  - apps/*
+
+catalog:
+  '@types/lodash-es': ^4.17.12
+  lodash-es: ^4.17.21
+  type-fest: ^4.31.0
