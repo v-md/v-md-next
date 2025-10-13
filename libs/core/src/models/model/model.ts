@@ -5,7 +5,7 @@ import type {
 import { EDITOR_ERR_MSG } from '../editor'
 
 export class Model {
-  private _editor?: Editor
+  protected _editor?: Editor
 
   /** 编辑器实例 */
   get editor() {

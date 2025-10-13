@@ -1,47 +1,47 @@
 import type { Func } from '@v-md/shared'
 import type { Editor } from '../../editor'
-import type { Model } from '../../model'
+import type { Model, ViewModel } from '../../model'
 import type { Plugin } from '../plugin'
 
 /** 插件的声明周期钩子 */
 export interface PluginEvents {
   /**
-   * 当数据模块准备好时触发。
+   * 当数据模块准备好后触发。
    * @param editor 编辑器对象
    * @returns
    */
   onModelReady?: (editor: Editor, model: Model) => void
 
   /**
-   * 当数据模块从编辑器中移除时触发
+   * 当数据模块从编辑器中移除后触发
    * @param editor 编辑器对象
    * @returns
    */
   onModelRemoved?: (editor: Editor, model: Model) => void
 
   /**
-   * 当 UI 模块注册到编辑器时触发
+   * 当 UI 模块挂载后触发
    * @param editor 编辑器对象
-   * @param uiModule 当前注册的 UI 模块
+   * @param view 当前挂载的 UI 模块
    */
-  onViewReady?: (editor: Editor, uiModule: any) => void
+  onViewMounted?: (editor: Editor, view: ViewModel) => void
 
   /**
-   * 当 UI 模块从编辑器中移除时触发
+   * 当 UI 模块卸载后触发
    * @param editor 编辑器对象
-   * @param uiModule 当前移除的 UI 模块
+   * @param view 当前移除的 UI 模块
    */
-  onViewRemoved?: (editor: Editor, uiModule: any) => void
+  onViewUnmounted?: (editor: Editor, view: ViewModel) => void
 
   /**
-   * 当插件注册到编辑器时触发。
+   * 当插件注册到编辑器后触发。
    * @param editor 编辑器对象
    * @param plugin 当前注册的插件
    */
   onPluginReady?: (editor: Editor, plugin: Plugin) => void
 
   /**
-   * 插件从编辑器中移除前触发。
+   * 插件从编辑器中移除后触发。
    * @param editor 编辑器对象
    * @param plugin 当前移除的插件
    */
