@@ -20,6 +20,20 @@ export interface PluginEvents {
   onModelRemoved?: (editor: Editor, model: Model) => void
 
   /**
+   * 当 UI 模块注册到编辑器时触发
+   * @param editor 编辑器对象
+   * @param uiModule 当前注册的 UI 模块
+   */
+  onViewReady?: (editor: Editor, uiModule: any) => void
+
+  /**
+   * 当 UI 模块从编辑器中移除时触发
+   * @param editor 编辑器对象
+   * @param uiModule 当前移除的 UI 模块
+   */
+  onViewRemoved?: (editor: Editor, uiModule: any) => void
+
+  /**
    * 当插件注册到编辑器时触发。
    * @param editor 编辑器对象
    * @param plugin 当前注册的插件

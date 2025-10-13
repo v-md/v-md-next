@@ -24,7 +24,7 @@ export class Editor extends EventEmitter<PluginEvents> {
     super()
   }
 
-  private _modelMap: EditorModels = {}
+  private _modelMap: Partial<EditorModels> = {}
 
   /**
    * 根据名称搜索数据模块
