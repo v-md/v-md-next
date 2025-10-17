@@ -19,7 +19,7 @@ export class ViewModel extends Model {
 
   /** 初始化 UI 节点的方法，可以被重写  */
   async template() {
-    this.root = document.createElement('div')
+    return document.createElement('div')
   }
 
   /** HTML 挂载节点 */
@@ -33,7 +33,7 @@ export class ViewModel extends Model {
    */
   async mount(el: string | HTMLElement) {
     if (!this._root) {
-      await this.template()
+      this.root = await this.template()
     }
 
     const target = this._getMountTarget(el)
@@ -45,11 +45,6 @@ export class ViewModel extends Model {
     // 已经挂载到当前元素
     if (currentTarget === target) {
       return
-    }
-
-    // 当前挂载到其他元素
-    if (currentTarget && currentTarget !== target) {
-      this.unmount()
     }
 
     target.appendChild(this.root)

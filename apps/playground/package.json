@@ -1,0 +1,16 @@
+{
+  "name": "@v-md/playground",
+  "type": "module",
+  "version": "0.0.5",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@v-md/core": "workspace:^",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  }
+}

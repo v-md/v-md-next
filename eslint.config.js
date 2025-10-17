@@ -35,4 +35,5 @@ export default antfu({
       'ts/promise-function-async': 'off',
     },
   },
+  react: true,
 })

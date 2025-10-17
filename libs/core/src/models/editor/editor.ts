@@ -63,7 +63,7 @@ export class Editor extends EventEmitter<PluginEvents> {
       return this
     }
 
-    this._modelMap[model.name] = model
+    this._modelMap[model.name] = model as any
     model.bind(this)
     return this
   }
@@ -106,7 +106,7 @@ export class Editor extends EventEmitter<PluginEvents> {
    * @param options 插件插入位置选项
    * @returns 编辑器实例，支持链式调用
    */
-  use(plugin: Plugin, options?: SequencePositionOptions) {
+  addPlugin(plugin: Plugin, options?: SequencePositionOptions) {
     const isSuccess = insertIntoSequence(this._plugins, plugin, {
       onDuplicate: () => {
         console.warn(EDITOR_ERR_MSG.PLUGIN_DUPLICATED(plugin.name))
@@ -128,7 +128,7 @@ export class Editor extends EventEmitter<PluginEvents> {
    * @param name 插件名称
    * @returns 编辑器实例，支持链式调用
    */
-  eject(name: string) {
+  removePlugin(name: string) {
     removeFromSequence(this._plugins, name, {
       onNotFound: () => {
         console.warn(EDITOR_ERR_MSG.PLUGIN_NOT_FOUND(name))
