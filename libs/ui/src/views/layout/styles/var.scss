@@ -1,0 +1,27 @@
+@use "../../../styles/function" as *;
+@use "sass:map";
+
+$layout: () !default;
+$layout-map: map.deep-merge(
+  (
+    "top-bg-color": #{css-var-value("color", "bg-nav")},
+    "top-border-color": #{css-var-value("color", "border")},
+    "top-height": 36px,
+    "bottom-bg-color": #{css-var-value("color", "bg-nav")},
+    "bottom-border-color": #{css-var-value("color", "border")},
+    "bottom-height": 22px,
+    "activity-bg-color": #{css-var-value("color", "bg-nav")},
+    "activity-border-color": #{css-var-value("color", "border")},
+    "activity-width": 48px,
+    "activity-tab-item-padding": 12px 12px 6px 12px,
+    "activity-icon-size": 24px,
+    "side-main-bg-color": #{css-var-value("color", "bg-panel")},
+    "side-main-border-color": #{css-var-value("color", "border")},
+    "side-sub-bg-color": #{css-var-value("color", "bg-panel")},
+    "side-sub-border-color": #{css-var-value("color", "border")},
+    "main-content-bg-color": #{css-var-value("color", "bg-content")},
+    "main-panel-bg-color": #{css-var-value("color", "bg-content")},
+    "main-panel-border-color": #{css-var-value("color", "border")},
+  ),
+  $layout
+);

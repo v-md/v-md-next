@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@v-md/core": "workspace:^",
-    "react": "catalog:",
-    "react-dom": "catalog:"
+    "@v-md/ui": "workspace:^"
   }
 }

@@ -1,10 +1,11 @@
+import type { Editor } from '@v-md/core'
 import type { FC } from 'react'
-import type { Editor as EditorContext } from '../../models'
 
-export const Editor: FC<{ editor: EditorContext }> = ({ editor }) => {
+export const LayoutEditor: FC<{ editor: Editor }> = ({ editor }) => {
   console.log(editor)
   return (
     <>
+      <div>Hello World</div>
       <h1>Hello World</h1>
       <h2>Hello World</h2>
     </>

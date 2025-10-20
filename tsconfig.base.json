@@ -9,7 +9,8 @@
       "@v-md/shared": ["libs/shared/src"],
       "@v-md/shared/*": ["libs/shared/src/*"],
       "@v-md/core": ["libs/core/src"],
-      "@v-md/core/*": ["libs/core/src/*"]
+      "@v-md/core/*": ["libs/core/src/*"],
+      "@v-md/ui": ["libs/ui/src"]
     },
     "resolveJsonModule": true,
     "types": ["node"],

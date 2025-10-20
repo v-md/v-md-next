@@ -34,18 +34,27 @@ export interface PluginEvents {
   onViewUnmounted?: (editor: Editor, view: ViewModel) => void
 
   /**
-   * 当插件注册到编辑器后触发。
+   * 当插件注册到编辑器后触发
    * @param editor 编辑器对象
    * @param plugin 当前注册的插件
    */
   onPluginReady?: (editor: Editor, plugin: Plugin) => void
 
   /**
-   * 插件从编辑器中移除后触发。
+   * 插件从编辑器中移除后触发
    * @param editor 编辑器对象
    * @param plugin 当前移除的插件
    */
   onPluginRemoved?: (editor: Editor, plugin: Plugin) => void
+
+  /**
+   * 配置项发生更改时触发
+   * @param editor 编辑器对象
+   * @param key 配置项 key 值
+   * @param value 配置项新值
+   * @param oldValue 配置项旧值
+   */
+  onConfigUpdated?: (editor: Editor, key: string, value: any, oldValue: any) => void
 }
 
 export type PluginEventNames = keyof PluginEvents
