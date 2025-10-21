@@ -3,18 +3,22 @@ import {
   cssClassName,
   cssVarName,
 } from '@v-md/shared'
-import { useState } from 'react'
+import { useConfig } from './config'
 
-export function useNamespace(editor: Editor) {
-  const configsModel = editor.getModel('configs')
-  const configs = configsModel.getConfigs()
-  const [namespace, setNamespace] = useState(configs.namespace || '')
+export function useNamespace(editor: Editor, prefix: string = '') {
+  const [namespace = '', setNamespace] = useConfig(editor, 'namespace')
 
   function c(...names: string[]) {
+    if (prefix) {
+      names.unshift(prefix)
+    }
     return cssClassName(namespace, ...names)
   }
 
   function v(...names: string[]) {
+    if (prefix) {
+      names.unshift(prefix)
+    }
     return cssVarName(namespace, ...names)
   }
 

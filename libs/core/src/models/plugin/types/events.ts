@@ -1,4 +1,5 @@
 import type { Func } from '@v-md/shared'
+import type { ConfigNames } from '../../configs'
 import type { Editor } from '../../editor'
 import type { Model, ViewModel } from '../../model'
 import type { Plugin } from '../plugin'
@@ -54,7 +55,7 @@ export interface PluginEvents {
    * @param value 配置项新值
    * @param oldValue 配置项旧值
    */
-  onConfigUpdated?: (editor: Editor, key: string, value: any, oldValue: any) => void
+  onConfigUpdated?: (editor: Editor, key: ConfigNames, value: any, oldValue: any) => void
 }
 
 export type PluginEventNames = keyof PluginEvents

@@ -53,6 +53,20 @@ export class Editor extends EventEmitter<PluginEvents> {
   }
 
   /**
+   * 在链式操作中获取数据模块
+   * @param name 模块名称
+   * @param handler 回调函数，参数中可以获取对应的模块
+   */
+  model<T extends EditorModelName = EditorModelName>(
+    name: T,
+    handler: (model: EditorModels[T]) => void,
+  ) {
+    const target = this.getModel<T>(name)
+    handler(target)
+    return this
+  }
+
+  /**
    * 插入模块
    * @param model 模块对象
    */

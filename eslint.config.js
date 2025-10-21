@@ -35,5 +35,9 @@ export default antfu({
       'ts/promise-function-async': 'off',
     },
   },
-  react: true,
+  react: {
+    overrides: {
+      'react-hooks/exhaustive-deps': 'off',
+    },
+  },
 })

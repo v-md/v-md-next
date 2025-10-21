@@ -26,11 +26,13 @@ export class Model {
     this.name = name
   }
 
+  /** 模块挂载到编辑器 */
   bind(editor: Editor) {
     this._editor = editor
     this.editor.triggerSync('onModelReady', this.editor, this)
   }
 
+  /** 模块从编辑器卸载 */
   unbind() {
     this.editor.triggerSync('onModelRemoved', this.editor, this)
     delete this._editor

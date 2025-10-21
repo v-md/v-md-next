@@ -1,0 +1,45 @@
+
+@use "./mixins" as *;
+@use "./var" as *;
+@use "./root.scss";
+
+#vmd-app {
+  box-sizing: border-box;
+  font-size: 14px;
+  border-style: solid;
+  border-width: 0;
+
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  ol,
+  ul,
+  menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li,
+  ul {
+    list-style: none;
+  }
+
+  img,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block; /* 1 */
+    vertical-align: middle; /* 2 */
+  }
+
+  img {
+    display: inline-block;
+  }
+}

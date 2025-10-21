@@ -18,7 +18,7 @@ export class ViewModel extends Model {
   }
 
   /** 初始化 UI 节点的方法，可以被重写  */
-  async template() {
+  template() {
     return document.createElement('div')
   }
 
@@ -30,10 +30,14 @@ export class ViewModel extends Model {
    * @param el 挂载的目标元素，取值说明如下：
    * - 字符串：将作为选择器，查找页面中对应的元素
    * - HTMLElement：直接使用传入的元素
+   * @param type 挂载方式，取值说明如下：
+   * - prepend: 向前插入到目标元素的子元素列表
+   * - append：向后插入到目标元素的子元素列表
+   * - replace：替换目标元素
    */
-  async mount(el: string | HTMLElement) {
+  mount(el: string | HTMLElement, type: 'append' | 'prepend' | 'replace' = 'append') {
     if (!this._root) {
-      this.root = await this.template()
+      this.root = this.template()
     }
 
     const target = this._getMountTarget(el)
@@ -47,7 +51,23 @@ export class ViewModel extends Model {
       return
     }
 
-    target.appendChild(this.root)
+    if (type === 'append') {
+      target.appendChild(this.root)
+    }
+    else if (type === 'prepend') {
+      target.prepend(this.root)
+    }
+    else {
+      target.replaceWith(this.root)
+    }
+  }
+
+  /**
+   * 当组件的 DOM 成功挂载后触发
+   *
+   * 在 React、Vue 等框架中，这个时机要在组件内部异步获取
+   */
+  onMounted() {
     this.editor.triggerSync('onViewMounted', this.editor, this)
   }
 
