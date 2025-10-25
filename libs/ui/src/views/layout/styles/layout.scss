@@ -4,6 +4,9 @@
 
 :root {
   @include v("layout", var.$layout-map);
+
+  // 修改 allotment 分割线颜色
+  --separator-border: #{css-var-value("color", "border")};
 }
 
 @include c("layout") {

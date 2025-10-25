@@ -1,1 +1,5 @@
 export * from './layout'
+export * from './layout-activity'
+export * from './layout-main'
+export * from './layout-side-primary'
+export * from './layout-side-secondary'

@@ -1,0 +1,8 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/function" as *;
+
+@include c("layout-side-primary") {
+  width: 100%;
+  height: 100%;
+  background-color: #{css-var-value("layout", "side-primary-bg-color")};
+}
